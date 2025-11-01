@@ -366,18 +366,26 @@
 
       <div class="chat-body" id="messages"></div>
 
-<div class="composer" style="padding: 18px 16px 20px; position: fixed; bottom: 50px; left: 0; right: 0; background: var(--card); z-index: 20; display: flex; gap: 10px; align-items: center; justify-content: center; box-shadow: 0 -4px 18px rgba(0,0,0,0.3);">
+<div class="composer" style="
+  margin-bottom: 50px;       /* 👈 deja aire antes del borde inferior */
+  padding: 16px 16px 20px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: var(--card);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+">
   <input id="textInput" placeholder="Escribe algo..." autocomplete="off"
-         style="flex:1; max-width:680px; padding:14px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); color:inherit; font-size:16px;">
+         style="flex:1; padding:14px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); color:inherit; font-size:16px;">
   <button id="sendBtn" class="btn"
           style="padding:12px 18px; border-radius:10px; background:var(--accent); color:#021; font-weight:600; border:none; cursor:pointer;">
     Enviar
   </button>
 </div>
 
-
-
-  
 
     </main>
   </div>
@@ -486,6 +494,7 @@
   </script>
 </body>
 </html>
+
 
 
 
