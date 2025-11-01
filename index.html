@@ -317,7 +317,56 @@
   z-index: 200;
 ">
   <div class="brand" style="display:flex;align-items:center;gap:8px;">
-    <div class="logo" style="width:34px;height:34px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7dd3fc);display:flex;align-items:center;justify-content:center;font-weight:700;color:#021;">V</div>
+<!-- SVG logo: anonimato estilizado (reemplaza tu <div class="logo">) -->
+<div class="logo" style="width:44px;height:44px;">
+  <svg viewBox="0 0 48 48" width="100%" height="100%" aria-labelledby="logoTitle logoDesc" role="img" xmlns="http://www.w3.org/2000/svg">
+    <title id="logoTitle">VINCLE — Anónimo</title>
+    <desc id="logoDesc">Símbolo circular con silueta estilizada representando anonimato.</desc>
+
+    <!-- background circle with gradient using CSS var -->
+    <defs>
+      <linearGradient id="gAccent" x1="0" x2="1" y1="0" y2="1">
+        <stop offset="0" stop-color="var(--accent, #60a5fa)" stop-opacity="1"/>
+        <stop offset="1" stop-color="#7dd3fc" stop-opacity="1"/>
+      </linearGradient>
+
+      <!-- subtle inner shadow -->
+      <filter id="fShadow" x="-50%" y="-50%" width="200%" height="200%">
+        <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.35"/>
+      </filter>
+    </defs>
+
+    <!-- outer circle -->
+    <circle cx="24" cy="24" r="22" fill="url(#gAccent)" filter="url(#fShadow)"/>
+
+    <!-- ring to suggest "mask" / hidden face -->
+    <circle cx="24" cy="24" r="14.2" fill="rgba(0,0,0,0.08)"/>
+
+    <!-- stylized anonymous silhouette (minimal) -->
+    <!-- head -->
+    <ellipse cx="24" cy="18.5" rx="4.6" ry="4.6" fill="#021" fill-opacity="0.95"/>
+    <!-- shoulders / cloak -->
+    <path d="M12.2  thirtythree
+    " fill="none"/>
+
+    <!-- simplified cloak path (smooth, geometric) -->
+    <path d="
+      M 12 32
+      C 12 27 18 24 24 24
+      C 30 24 36 27 36 32
+      L 36 34
+      C 36 36 32 38 24 38
+      C 16 38 12 36 12 34
+      Z
+    " fill="#021" fill-opacity="0.92"/>
+
+    <!-- subtle highlight on top-left -->
+    <path d="M16 12 C18 10 22 9 24 9 C26 9 30 10 32 12" stroke="rgba(255,255,255,0.06)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+  </svg>
+</div>
+
+    
     <h1 style="font-size:18px;margin:0;color:#e6eef8;">VINCLE</h1>
   </div>
   <button id="menuToggle" style="
@@ -619,6 +668,7 @@
 
 </body>
 </html>
+
 
 
 
