@@ -92,19 +92,20 @@
     #menuToggle.active { transform: rotate(90deg); }
 
     /* === APP === */
-    .app {
-      width: 100%;
-      max-width: 900px;
-      height: calc(100vh - 56px); /* ✅ ocupa toda la pantalla menos el header */
-      background: var(--card);
-      border-radius: 14px;
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
-      position: relative;
-      margin-top: 56px; /* espacio para el header fijo */
-    }
+ .app {
+  width: 100%;
+  max-width: 900px;
+  height: calc(100dvh - 56px); /* ✅ antes: 100vh → ahora usa dvh para móviles */
+  background: var(--card);
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+  position: relative;
+  margin-top: 56px;
+}
+
 
     .panel {
       padding: 18px;
@@ -195,17 +196,17 @@
 
     .room-title { font-weight: 600; }
 
-    .chat-body {
-      flex: 1;
-      padding: 14px;
-      overflow-y: auto; /* ✅ solo el área de mensajes scrollea */
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-      scroll-behavior: smooth;
-    }
-
+ .chat-body {
+  flex: 1;
+  padding: 14px;
+  padding-bottom: 70px; /* ✅ nuevo: deja espacio cómodo sobre el input */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  scroll-behavior: smooth;
+}
     .bubble {
       max-width: 80%;
       padding: 10px 12px;
@@ -226,15 +227,17 @@
       color: #021;
     }
 
-    .composer {
-      padding: 12px;
-      border-top: 1px solid rgba(255,255,255,0.03);
-      display: flex;
-      gap: 8px;
-      align-items: center;
-      background: var(--card);
-      flex-shrink: 0; /* ✅ mantiene el input visible siempre */
-    }
+  .composer {
+  padding: 10px 12px;
+  border-top: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--card);
+  flex-shrink: 0;
+  position: sticky; /* ✅ esto ayuda a mantenerlo visible si se redujera el alto */
+  bottom: 0;
+}
 
     .composer input {
       flex: 1;
@@ -461,5 +464,6 @@
   </script>
 </body>
 </html>
+
 
 
