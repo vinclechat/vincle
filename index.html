@@ -229,19 +229,16 @@
 
  /* ✅ El input y botón ahora flotan un poco más arriba visualmente */
 .composer {
+  padding: 14px 14px 20px; /* ⬅️ antes era 12px; ahora dejamos más espacio abajo */
+  border-top: 1px solid rgba(255,255,255,0.03);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--card);
+  flex-shrink: 0;
   position: sticky;
   bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 14px 16px;
-  border-top: 1px solid rgba(255,255,255,0.05);
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  background: rgba(11,18,32,0.95); /* un poco translúcido y elevado */
-  backdrop-filter: blur(10px);
-  flex-shrink: 0;
-  z-index: 5;
+  z-index: 5; /* asegura que quede visible sobre cualquier contenido */
 }
 
 .composer input {
@@ -264,6 +261,7 @@
   cursor: pointer;
   transition: opacity 0.2s;
 }
+
 
 .composer button:hover { opacity: 0.9; }
     .meta-note { font-size: 12px; color: var(--muted); padding: 0 14px 10px; }
@@ -480,6 +478,7 @@
   </script>
 </body>
 </html>
+
 
 
 
