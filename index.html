@@ -529,14 +529,7 @@
 
     if (ROOM) { setRoom(ROOM); listen(); }
 
-    // menú móvil
-    const panel = q('mobilePanel');
-    const toggle = q('menuToggle');
-    toggle.onclick = () => { panel.classList.add('show'); toggle.classList.add('active'); };
-    q('closePanel').onclick = () => { panel.classList.remove('show'); toggle.classList.remove('active'); };
-    panel.addEventListener('click', e => { if (e.target === panel) { panel.classList.remove('show'); toggle.classList.remove('active'); } });
-
-    // efecto header
+ // efecto header
     const header = document.getElementById('mainHeader');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 10) header.classList.add('scrolled');
@@ -572,6 +565,7 @@
 
 </body>
 </html>
+
 
 
 
