@@ -44,6 +44,60 @@
       position: relative;
     }
 
+    /* HEADER FIJO */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      background: rgba(10, 16, 30, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      z-index: 40;
+      color: #e6eef8;
+    }
+
+    header .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    header .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--accent), #7dd3fc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #021;
+    }
+
+    header h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    /* botón menú mejorado */
+    #menuToggle {
+      background: transparent;
+      border: none;
+      color: var(--accent);
+      font-size: 28px;
+      cursor: pointer;
+      transition: transform 0.2s;
+      display: none;
+    }
+
+    #menuToggle.active { transform: rotate(90deg); }
+
     /* panel lateral */
     .panel {
       padding: 18px;
@@ -54,25 +108,6 @@
       gap: 12px;
       background: var(--card);
       height: 100%;
-    }
-
-    .brand {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), #7dd3fc);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      color: #021;
-      box-shadow: 0 6px 18px rgba(6,12,30,0.6);
     }
 
     h1 { font-size: 18px; margin: 0; }
@@ -106,6 +141,7 @@
       font-weight: 500;
       transition: all 0.2s;
     }
+
     .btn:hover { opacity: 0.9; }
 
     .btn.ghost {
@@ -114,13 +150,16 @@
       color: var(--muted);
     }
 
-    .small { font-size: 13px; }
-    .meta { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    /* CHAT */
+    .chat {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      padding-top: 56px; /* espacio para el header fijo */
+    }
 
-    /* chat */
-    .chat { display: flex; flex-direction: column; height: 100%; }
     .chat-header {
-      padding: 16px 14px;
+      padding: 14px;
       border-bottom: 1px solid rgba(255,255,255,0.03);
       display: flex;
       justify-content: space-between;
@@ -180,25 +219,6 @@
       font-size: 16px;
     }
 
-    .meta-note { font-size: 12px; color: var(--muted); padding: 0 14px 10px; }
-
-    /* botón menú mejorado */
-    #menuToggle {
-      display: none;
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      background: transparent;
-      border: none;
-      color: var(--accent);
-      font-size: 26px;
-      z-index: 30;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    #menuToggle.active { transform: rotate(90deg); }
-
     /* panel móvil */
     .mobile-panel {
       position: fixed;
@@ -210,7 +230,7 @@
       display: none;
       justify-content: flex-start;
       align-items: stretch;
-      z-index: 20;
+      z-index: 30;
       transition: opacity 0.25s ease;
     }
 
@@ -231,12 +251,10 @@
 
     @keyframes slideIn { to { transform: translateX(0); } }
 
-    /* móvil */
     @media (max-width:800px) {
       .app { grid-template-columns: 1fr; height: 96vh; }
       .panel { display: none; }
       #menuToggle { display: block; }
-      .chat-header { padding-top: 52px; }
       .chat-body { padding: 12px; gap: 8px; }
       .bubble { font-size: 14px; padding: 10px 12px; }
       .composer input { font-size: 15px; }
@@ -245,9 +263,15 @@
   </style>
 </head>
 <body>
-  <div class="app">
+  <header>
+    <div class="brand">
+      <div class="logo">V</div>
+      <h1>VINCLE</h1>
+    </div>
     <button id="menuToggle">☰</button>
+  </header>
 
+  <div class="app">
     <div class="mobile-panel" id="mobilePanel">
       <aside class="panel">
         <div class="brand">
@@ -300,8 +324,6 @@
       </div>
 
       <div class="chat-body" id="messages"></div>
-
-      <div class="meta-note muted small">Los mensajes se borran tras 24 h (modo demo).</div>
 
       <div class="composer">
         <input id="textInput" placeholder="Escribe algo..." autocomplete="off" />
@@ -409,3 +431,4 @@
   </script>
 </body>
 </html>
+
