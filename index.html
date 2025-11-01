@@ -175,7 +175,11 @@
     .meta { font-size: 12px; color: var(--muted); margin-top: 6px; }
 
     /* chat */
-    .chat { display: flex; flex-direction: column; height: 100%; }
+ .chat {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px); /* resta el header fijo */
+}
     .chat-header {
       padding: 16px 14px;
       border-bottom: 1px solid rgba(255,255,255,0.03);
@@ -186,18 +190,11 @@
     }
 
     .room-title { font-weight: 600; }
-
-    .chat-body {
-      flex: 1;
-      padding: 14px;
-      overflow: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
-      scroll-behavior: smooth;
-    }
-
+.chat-body {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 8px; /* deja margen inferior para el input */
+}
     .bubble {
       max-width: 80%;
       padding: 10px 12px;
@@ -453,3 +450,4 @@
   </script>
 </body>
 </html>
+
